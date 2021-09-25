@@ -1,1 +1,15 @@
-something to stick out of the faces so you can see the lines through them.
+Todo:
+- [ ] add equivalent tools to compile / transpile / translate html/css/js from their dev versions and achieve same result
+    - [ ] download production versions of html, js, css to debug differences
+        - [ ] replicate html build
+        - [ ] replicate css build
+        - [x] replicate js build
+            - deleted one of the configs, had to rename the other to get it recognized
+    - [ ] debug disappearance of slider on local version
+    - [ ] debug / find default player behavior
+- [ ] Excise gulp from this project, move it all to webpack (gulp doesn't play nice with new versions of npm, too lazy to troubleshoot)
+- [ ] update data
+    - [ ] get spotify api auth
+    - [ ] scrape (or via api if it exists) billboard top 5
+    - [ ] determine schema / id system and insert new rows into csv
+    - [ ] move into sqlite db maybe (stretch goal)
