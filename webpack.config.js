@@ -1,3 +1,7 @@
+const path = require('path');
+const HandlebarsPlugin = require('handlebars-webpack-plugin');
+
+
 module.exports = {
 	mode: 'production',
 	entry: {
@@ -21,5 +25,17 @@ module.exports = {
 				}
 			}
 		]
-	}
+	},
+	plugins: [
+		new HandlebarsPlugin({
+			entry: path.join(process.cwd(), 'src', 'html', '*.hbs'),
+			output: path.join(process.cwd(), 'dist', '[name].html'),
+			partials: [
+				path.join(process.cwd(), 'src', 'html', 'partials', '*', '*.hbs')
+			],
+			helpers: {
+				projectHelpers: path.join(process.cwd(), 'src', 'html', 'helpers', '*.js')
+			}
+		})
+	]
 };

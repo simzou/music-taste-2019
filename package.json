@@ -45,6 +45,7 @@
     "gulp-sourcemaps": "^2.6.4",
     "gulp-stylus": "^2.7.0",
     "gulp-util": "^3.0.7",
+    "handlebars-webpack-plugin": "^2.2.1",
     "prettier": "^1.15.3",
     "request": "^2.88.0",
     "require-dir": "^1.2.0",

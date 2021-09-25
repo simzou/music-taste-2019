@@ -1,7 +1,8 @@
 Todo:
 - [ ] add equivalent tools to compile / transpile / translate html/css/js from their dev versions and achieve same result
     - [ ] download production versions of html, js, css to debug differences
-        - [ ] replicate html build
+        - [x] replicate html build
+            - use webpack handlebars plugin
         - [ ] replicate css build
         - [x] replicate js build
             - deleted one of the configs, had to rename the other to get it recognized
