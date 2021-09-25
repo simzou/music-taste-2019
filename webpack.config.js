@@ -1,6 +1,7 @@
 const path = require('path');
 const HandlebarsPlugin = require('handlebars-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 	mode: 'production',
@@ -60,6 +61,14 @@ module.exports = {
 				projectHelpers: path.join(process.cwd(), 'src', 'html', 'helpers', '*.js')
 			}
 		}),
-		new MiniCssExtractPlugin()
+		new MiniCssExtractPlugin(),
+		new CopyWebpackPlugin({
+			patterns: [
+				{
+					from: 'src/assets/',
+					to: 'assets/'
+				}
+			]
+		})
 	]
 };
