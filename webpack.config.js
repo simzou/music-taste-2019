@@ -1,6 +1,6 @@
 const path = require('path');
 const HandlebarsPlugin = require('handlebars-webpack-plugin');
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
 	mode: 'production',
@@ -13,9 +13,32 @@ module.exports = {
 	},
 	module: {
 		rules: [
+			{ 
+				test: /\.styl$/,
+				use: 
+				[
+					{
+						loader: MiniCssExtractPlugin.loader,
+					},
+					{
+						loader: "css-loader",
+					},
+					{
+						loader: "stylus-loader",
+						options: 
+						{
+							stylusOptions: 
+							{
+								include: [path.join(process.cwd(), "src", "css")],
+								additionalData: `@env: ${process.env.NODE_ENV};`,
+							},
+						}
+					}
+				]
+			},
 			{
 				test: /\.js$/,
-				exclude: /(node_modules|bower_components)/,
+				exclude: /node_modules/,
 				use: {
 					loader: 'babel-loader',
 					options: {
@@ -36,6 +59,7 @@ module.exports = {
 			helpers: {
 				projectHelpers: path.join(process.cwd(), 'src', 'html', 'helpers', '*.js')
 			}
-		})
+		}),
+		new MiniCssExtractPlugin()
 	]
 };

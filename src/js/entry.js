@@ -3,6 +3,8 @@ import debounce from 'lodash.debounce';
 import isMobile from './utils/is-mobile';
 import graphic from './graphic';
 
+import '../css/config.styl';
+
 const $body = d3.select('body');
 let previousWidth = 0;
 

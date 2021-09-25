@@ -1,6 +1,4 @@
 /* global d3 */
-
-
 import noUiSlider from "nouislider";
 //import 'nouislider/distribute/nouislider.css';
 var countStreak = 1;
