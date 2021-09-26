@@ -108,7 +108,7 @@ function newCode(){
 
 	var uniqueRowsCsv = "assets/data/unique_rows_2019_1.csv";
 
-	var startString = "1999-12-13";
+	var startString = "1997-03-22";
 	if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 	  mobile = true;
 	}
