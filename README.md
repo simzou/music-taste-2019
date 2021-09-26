@@ -11,7 +11,9 @@ Todo:
     - [x] debug disappearance of slider on local version
         - there was a display: none set on the slider wrapper WHY?
     - [ ] debug / find default player behavior
-- [ ] Excise gulp from this project, move it all to webpack (gulp doesn't play nice with new versions of npm, too lazy to troubleshoot)
+    - [ ] change some header text
+- [x] Excise gulp from this project, move it all to webpack (gulp doesn't play nice with new versions of npm, too lazy to troubleshoot)
+- [ ] need to replace the @@include notation for svgs (that was a gulp plugin thing I think)
 - [ ] update data
     - [ ] get spotify api auth
     - [ ] scrape (or via api if it exists) billboard top 5

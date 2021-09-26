@@ -2,6 +2,8 @@ const path = require('path');
 const HandlebarsPlugin = require('handlebars-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const mergeJSON = require('handlebars-webpack-plugin/utils/mergeJSON');
+const projectData = mergeJSON(path.join(__dirname, "template-data/*.json"));
 
 module.exports = {
 	mode: 'production',
@@ -14,6 +16,17 @@ module.exports = {
 	},
 	module: {
 		rules: [
+			{
+				test: /\.js$/,
+				exclude: /node_modules/,
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: ['@babel/preset-env'],
+						plugins: [require('@babel/plugin-proposal-object-rest-spread')]
+					}
+				}
+			},
 			{ 
 				test: /\.styl$/,
 				use: 
@@ -30,7 +43,7 @@ module.exports = {
 						{
 							stylusOptions: 
 							{
-								include: [path.join(process.cwd(), "src", "css")],
+								include: [path.join(__dirname, "src", "css")],
 								additionalData: `@env: ${process.env.NODE_ENV};`,
 							},
 						}
@@ -38,37 +51,38 @@ module.exports = {
 				]
 			},
 			{
-				test: /\.js$/,
-				exclude: /node_modules/,
-				use: {
-					loader: 'babel-loader',
-					options: {
-						presets: ['@babel/preset-env'],
-						plugins: [require('@babel/plugin-proposal-object-rest-spread')]
-					}
-				}
+				test: /\.svg$/,
+				type: 'asset/inline'
 			}
 		]
 	},
 	plugins: [
 		new HandlebarsPlugin({
-			entry: path.join(process.cwd(), 'src', 'html', '*.hbs'),
-			output: path.join(process.cwd(), 'dist', '[name].html'),
+			entry: path.join(__dirname, 'src', 'html', '*.hbs'),
+			output: path.join(__dirname, 'dist', '[name].html'),
+			data: projectData,
 			partials: [
-				path.join(process.cwd(), 'src', 'html', 'partials', '*', '*.hbs')
+				path.join(__dirname, 'src', 'html', 'partials', '*', '*.hbs')
 			],
 			helpers: {
-				projectHelpers: path.join(process.cwd(), 'src', 'html', 'helpers', '*.js')
+				projectHelpers: path.join(__dirname, 'src', 'html', 'helpers', '*.js')
 			}
 		}),
 		new MiniCssExtractPlugin(),
 		new CopyWebpackPlugin({
 			patterns: [
 				{
-					from: 'src/assets/',
+					from: 'src/assets',
 					to: 'assets/'
 				}
 			]
 		})
-	]
+	],
+	devServer: {
+		static: {
+			directory: path.join(__dirname, 'dist')
+		},
+		compress: true,
+		port: 9000
+	}
 };
