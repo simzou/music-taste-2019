@@ -10,10 +10,11 @@ Todo:
             - deleted one of the configs, had to rename the other to get it recognized
     - [x] debug disappearance of slider on local version
         - there was a display: none set on the slider wrapper WHY?
-    - [ ] debug / find default player behavior
-    - [ ] change some header text
+    - [x] debug / find default player behavior
+    - [x] change some header text
 - [x] Excise gulp from this project, move it all to webpack (gulp doesn't play nice with new versions of npm, too lazy to troubleshoot)
-- [ ] need to replace the @@include notation for svgs (that was a gulp plugin thing I think)
+- [x] need to replace the @@include notation for svgs (that was a gulp plugin thing I think)
+- [x] make header and menu visible
 - [ ] update data
     - [ ] get spotify api auth
     - [ ] scrape (or via api if it exists) billboard top 5

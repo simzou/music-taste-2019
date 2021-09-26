@@ -1,5 +1,6 @@
 const path = require('path');
 const HandlebarsPlugin = require('handlebars-webpack-plugin');
+const svgHelper = require('handlebars-helper-svg');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const mergeJSON = require('handlebars-webpack-plugin/utils/mergeJSON');
@@ -49,10 +50,6 @@ module.exports = {
 						}
 					}
 				]
-			},
-			{
-				test: /\.svg$/,
-				type: 'asset/inline'
 			}
 		]
 	},
@@ -65,6 +62,7 @@ module.exports = {
 				path.join(__dirname, 'src', 'html', 'partials', '*', '*.hbs')
 			],
 			helpers: {
+				svg: svgHelper,
 				projectHelpers: path.join(__dirname, 'src', 'html', 'helpers', '*.js')
 			}
 		}),
@@ -80,9 +78,9 @@ module.exports = {
 	],
 	devServer: {
 		static: {
-			directory: path.join(__dirname, 'dist')
+			directory: path.join(__dirname, 'dist'),
 		},
 		compress: true,
-		port: 9000
+		port: 9000,
 	}
 };

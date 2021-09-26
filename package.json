@@ -31,6 +31,7 @@
     "eslint-config-prettier": "^3.4.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-prettier": "^3.0.1",
+    "handlebars-helper-svg": "^2.0.2",
     "handlebars-webpack-plugin": "^2.2.1",
     "mini-css-extract-plugin": "^2.3.0",
     "prettier": "^1.15.3",
@@ -48,6 +49,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "serve": "webpack serve --live-reload"
+    "serve": "webpack serve"
   }
 }

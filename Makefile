@@ -15,6 +15,7 @@ archive:
 
 # aws-htmljs:
 # 	aws s3 cp dist/index.html s3://pudding.cool/year/month/name/index.html
+# 	aws s3 cp dist/bundle.css s3://pudding.cool/year/month/name/bundle.css
 # 	aws s3 cp dist/bundle.js s3://pudding.cool/year/month/name/bundle.js
 
 # aws-cache:

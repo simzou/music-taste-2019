@@ -5,3 +5,4 @@ import './polyfills/endsWith';
 import './polyfills/findIndex';
 import './polyfills/find';
 import './polyfills/includes';
+
