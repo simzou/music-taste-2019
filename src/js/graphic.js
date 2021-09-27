@@ -1,6 +1,6 @@
 /* global d3 */
 import noUiSlider from "nouislider";
-//import 'nouislider/distribute/nouislider.css';
+
 var countStreak = 1;
 let dragging = false;
 let svg = null;
@@ -135,6 +135,8 @@ function newCode(){
 
 	  }
 
+	  console.log(data);
+	  console.log(songsUnique);
 	  var songsUniqueMap = d3.map(songsUnique, function(d){ return d.key });
 
 	  var x = d3.time.scale().domain([dates[0],dates[dates.length-1]]).range([height, 0]);

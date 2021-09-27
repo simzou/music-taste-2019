@@ -1,0 +1,14 @@
+{
+  "name": "data-scripts",
+  "version": "2021.09",
+  "description": "scripts for working with and creating data needed for \"Best Year in Music\" visualization",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Simon Zou",
+  "license": "MIT",
+  "dependencies": {
+    "billboard-top-100": "^2.5.9"
+  }
+}
