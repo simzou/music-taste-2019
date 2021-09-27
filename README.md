@@ -15,8 +15,3 @@ Todo:
 - [x] Excise gulp from this project, move it all to webpack (gulp doesn't play nice with new versions of npm, too lazy to troubleshoot)
 - [x] need to replace the @@include notation for svgs (that was a gulp plugin thing I think)
 - [x] make header and menu visible
-- [ ] update data
-    - [ ] get spotify api auth
-    - [ ] scrape (or via api if it exists) billboard top 5
-    - [ ] determine schema / id system and insert new rows into csv
-    - [ ] move into sqlite db maybe (stretch goal)
